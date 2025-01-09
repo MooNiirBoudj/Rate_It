@@ -1,0 +1,46 @@
+name: rate_it
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  sqflite: ^2.4.1
+  sqflite_common_ffi: ^2.3.4+4
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.0
+  image_picker: ^0.8.4+4
+  url_launcher: ^6.3.1
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/icons/navBarIcons/home.png
+  - assets/icons/navBarIcons/homeActive.png
+  - assets/icons/navBarIcons/rooms.png
+  - assets/icons/navBarIcons/roomsActive.png
+  - assets/icons/navBarIcons/create.png
+  - assets/icons/navBarIcons/createActive.png
+  - assets/icons/navBarIcons/notifications.png
+  - assets/icons/navBarIcons/notificationsActive.png
+  - assets/logo/RateIt_Logo(Mini).png
+  - assets/logo/RateIt_Logo.png
+  - assets/logo/Splash_logo.png
+  - assets/logo/Splash_logo-removebg-preview.png
+  - assets/logo/logo-horizental-removebg-preview.png
+  - assets/images/1.png
+  - assets/images/2.png
+  - assets/images/3.png
+  - assets/images/4.png
+  - assets/images/5.png
