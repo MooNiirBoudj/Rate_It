@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "44110580903",
+    "project_id": "rateit-df428",
+    "storage_bucket": "rateit-df428.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44110580903:android:d62c34ef8ca810672f9f82",
+        "android_client_info": {
+          "package_name": "com.rate_it.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnyS57AanXKY2msDdhkOd6PStwQEbJXzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

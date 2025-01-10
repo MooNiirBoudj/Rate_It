@@ -185,7 +185,9 @@ Form(
                             ),
                             const SizedBox(height: 16),
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pushNamed(context, '/main');
+                              },
                               child: Text(
                                 ' Enter as a guest',
                                 style: TextStyle(

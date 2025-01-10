@@ -1,4 +1,4 @@
-import 'package:rateit/databases/db_base.dart';
+import '/DB/db_base.dart';
 
 class DBUserTable extends DBBaseTable {
   @override
