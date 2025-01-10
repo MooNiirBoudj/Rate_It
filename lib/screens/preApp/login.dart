@@ -14,7 +14,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController UsernameController = TextEditingController();
   bool showPassword = false;
   bool isProcessing = false;
   String message = '';
@@ -72,23 +72,21 @@ class _LoginState extends State<Login> {
                         ],
                       ),
                       const SizedBox(height: 32),
-                      Form(
+Form(
                         key: _formKey,
                         child: Column(
                           children: [
                             TextFormField(
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return "Email can't be empty";
-                                } else if (!emailRegex.hasMatch(value)) {
-                                  return "Please enter a valid email address";
+                                  return "Username can't be empty";
                                 }
                                 return null;
                               },
-                              controller: emailController,
+                              controller: UsernameController,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'Email',
+                                labelText: 'Username',
                               ),
                             ),
                             const SizedBox(height: 16),
@@ -160,70 +158,6 @@ class _LoginState extends State<Login> {
                               indent: 20.0,
                               endIndent: 20.0,
                             ),
-                            const Text(
-                              'or log in with',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Outfit',
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    height: 50,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue[800],
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: const Icon(
-                                      Icons.facebook,
-                                      color: Colors.white,
-                                      size: 28,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 16),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    height: 50,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: const Icon(
-                                      Icons.g_mobiledata,
-                                      color: Colors.white,
-                                      size: 28,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 16),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    height: 50,
-                                    width: 50,
-                                    decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: const Icon(
-                                      Icons.apple,
-                                      color: Colors.white,
-                                      size: 28,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
                             const SizedBox(height: 16),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -249,6 +183,18 @@ class _LoginState extends State<Login> {
                                 ),
                               ],
                             ),
+                            const SizedBox(height: 16),
+                            InkWell(
+                              onTap: () {},
+                              child: Text(
+                                ' Enter as a guest',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Color.fromARGB(255, 255, 183, 59),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -263,27 +209,26 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Future<void> _handleLogin() async {
+ Future<void> _handleLogin() async {
     setState(() {
       isProcessing = true;
       message = '';
     });
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 5));
     final db = await DBHelper.getDatabase();
     final List<Map<String, dynamic>> users = await db.query(
-      'users',
-      where: 'email = ?',
-      whereArgs: [emailController.text],
+      'user',
+      where: 'userName = ?',
+      whereArgs: [UsernameController.text],
     );
 
     if (users.isNotEmpty && users[0]['password'] == passwordController.text) {
       setState(() {
         message = "Login Successful";
       });
-      Navigator.pushReplacementNamed(context, '/main');
     } else {
       setState(() {
-        message = "Wrong email or password";
+        message = "Wrong user name or password";
       });
     }
 
