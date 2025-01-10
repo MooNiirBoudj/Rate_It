@@ -1,17 +1,15 @@
-import 'db_base.dart';
+import 'package:rateit/databases/db_base.dart';
 
 class DBUserTable extends DBBaseTable {
   @override
-  var db_table = 'users';
+  var db_table = 'user';
 
   static String sql_code = '''
-    CREATE TABLE users (
+    CREATE TABLE user (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      firstName TEXT,
-      lastName TEXT,
-      email TEXT UNIQUE,
-      password TEXT,
-      gender TEXT
+      Name TEXT,
+      userName TEXT UNIQUE,
+      password TEXT
     )
   ''';
 }
