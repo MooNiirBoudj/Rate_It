@@ -126,6 +126,18 @@ class _FirstScreenState extends State<FirstScreen> {
                           ),
                         ),
                       ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: Text(
+                          'Continue as Guest',
+                          style: TextStyle(
+                            fontSize: screenWidth * 0.04,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Outfit',
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
