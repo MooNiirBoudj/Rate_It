@@ -44,3 +44,7 @@ flutter:
   - assets/images/3.png
   - assets/images/4.png
   - assets/images/5.png
+  - assets/icons/postsIcons/thinking.png
+  - assets/icons/postsIcons/rate.png
+  - assets/icons/postsIcons/emptyStar.png
+  - assets/icons/postsIcons/fullSar.png

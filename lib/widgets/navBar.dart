@@ -10,7 +10,6 @@ class CustomNavigationBar extends StatelessWidget {
     required this.onTap,
   });
 
-  // Define icon paths
   static const _iconPaths = {
     'home': {
       'default': 'assets/icons/navBarIcons/home.png',
@@ -34,57 +33,54 @@ class CustomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final bottomPadding = MediaQuery.of(context).padding.bottom;
     
-    return Container(
-      color:  Color(0xFFFDF8EA),
-      child: SizedBox(
-        height: 80 + bottomPadding,
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: Container(
-                height: 65 + bottomPadding,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
+    return SizedBox(
+      height: 80 + bottomPadding,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              height: 65 + bottomPadding,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 12,
+                    spreadRadius: 2,
+                    offset: Offset(0, -2),
                   ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 12,
-                      spreadRadius: 2,
-                      offset: Offset(0, -2),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        _buildNavItem(0, 'home', 'Home', context),
-                        _buildNavItem(1, 'rooms', 'Rooms', context),
-                        _buildNavItem(2, 'create', 'Create', context),
-                        _buildNavItem(3, 'notifications', 'Notifications', context),
-                      ],
-                    ),
-                    SizedBox(height: bottomPadding),
-                  ],
-                ),
+                ],
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _buildNavItem(0, 'home', 'Home', context),
+                      _buildNavItem(1, 'rooms', 'Rooms', context),
+                      _buildNavItem(2, 'create', 'Create', context),
+                      _buildNavItem(3, 'notifications', 'Notifications', context),
+                    ],
+                  ),
+                  SizedBox(height: bottomPadding),
+                ],
               ),
             ),
-            Positioned(
-              top: 0,
-              left: _calculateIndicatorPosition(context),
-              child: _buildIndicator(),
-            ),
-          ],
-        ),
+          ),
+          Positioned(
+            top: 0,
+            left: _calculateIndicatorPosition(context),
+            child: _buildIndicator(),
+          ),
+        ],
       ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rate_it/styles/style.dart';
-import 'package:rate_it/screens/mainApp/feed.dart';
+import 'package:rate_it/screens/mainApp/homeFunctionalities/feed.dart';
 import 'package:rate_it/screens/mainApp/homeFunctionalities/createRoom.dart';
 import 'package:rate_it/screens/mainApp/rooms.dart';
 import 'package:rate_it/widgets/appBar.dart'; // Import the common app bar

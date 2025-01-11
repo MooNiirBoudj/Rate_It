@@ -26,32 +26,39 @@ class _FirstScreenState extends State<FirstScreen> {
         ),
         child: Stack(
           children: [
-            // Positioned top-left image
-            Positioned(
-              top: screenHeight * 0.1,
-              left: screenWidth * 0.05,
-              child: Image.asset(
-                'assets/images/1.png',
-                width: screenWidth * 0.3,
-                height: screenHeight * 0.15,
-                fit: BoxFit.contain,
-              ),
-            ),
-            // Positioned top-right image
-            Positioned(
-              top: screenHeight * 0.1,
-              right: screenWidth * 0.05,
-              child: Image.asset(
-                'assets/images/3.png',
-                width: screenWidth * 0.3,
-                height: screenHeight * 0.15,
-                fit: BoxFit.contain,
-              ),
-            ),
-            // Main content (Text and images)
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: screenHeight * 0.1),
+                // Top images row with text
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    // Left image with text
+                    Column(
+                      children: [
+                        Image.asset(
+                          'assets/images/1.png',
+                          width: screenWidth * 0.3,
+                          height: screenHeight * 0.15,
+                          fit: BoxFit.contain,
+                        ),
+                        SizedBox(height: 8),
+                      ],
+                    ),
+                    // Right image with text
+                    Column(
+                      children: [
+                        Image.asset(
+                          'assets/images/3.png',
+                          width: screenWidth * 0.3,
+                          height: screenHeight * 0.15,
+                          fit: BoxFit.contain,
+                        ),
+                        SizedBox(height: 8),
+                      ],
+                    ),
+                  ],
+                ),
                 Spacer(flex: 2),
                 Text(
                   'Share Honest \nRatings, Make \nInformed Choices',
@@ -89,7 +96,7 @@ class _FirstScreenState extends State<FirstScreen> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/welcome');
+                          Navigator.pushReplacementNamed(context, '/welcome');
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color.fromARGB(255, 255, 183, 59),
@@ -123,18 +130,6 @@ class _FirstScreenState extends State<FirstScreen> {
                             fontWeight: FontWeight.w500,
                             fontFamily: 'Outfit',
                             color: Color.fromARGB(255, 255, 183, 59),
-                          ),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Text(
-                          'Continue as Guest',
-                          style: TextStyle(
-                            fontSize: screenWidth * 0.04,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Outfit',
-                            color: Colors.grey,
                           ),
                         ),
                       ),
